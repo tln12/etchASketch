@@ -1,5 +1,7 @@
 const btn = document.querySelector('button');
+const container = document.querySelector('.container');
 let num;
+
 btn.addEventListener('click', () => {
 
     do {
@@ -10,7 +12,6 @@ btn.addEventListener('click', () => {
 })
 
 function createGrid(squaresPerRow){
-    const container = document.querySelector('.container');
     let squareWidth;
     squares = squaresPerRow ** 2;
     for (let i = 0; i < squares; i++){
@@ -22,4 +23,13 @@ function createGrid(squaresPerRow){
     }
 }
 
-createGrid(10);
+function removeGrid(){
+    const squares = document.querySelectorAll('.square');
+    console.log(squares);
+    for (let i = 0; i < squares.length; i++){
+        container.removeChild(squares[i]);
+    }
+}
+
+createGrid(50);
+removeGrid();
