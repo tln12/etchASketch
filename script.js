@@ -7,7 +7,7 @@ btn.addEventListener('click', () => {
     do {
         num = Number(prompt("Type in the number of squares per side of the grid (max. 100)."));
     } while (isNaN(num) || num > 100);
-
+    removeGrid();
     createGrid(num);
 })
 
@@ -25,11 +25,9 @@ function createGrid(squaresPerRow){
 
 function removeGrid(){
     const squares = document.querySelectorAll('.square');
-    console.log(squares);
     for (let i = 0; i < squares.length; i++){
         container.removeChild(squares[i]);
     }
 }
 
-createGrid(50);
-removeGrid();
+createGrid(4);
