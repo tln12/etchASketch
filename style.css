@@ -1,5 +1,27 @@
-div {
-    width: 50px;
-    height: 50px;
-    background-color: pink;
+body {
+    display: flex;
+    justify-content: center;
 }
+.container {
+    background: blue;
+    height: auto;
+    max-width: 75%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    flex-wrap: wrap;
+}
+
+.container:before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+.square {
+    height: 25%;
+    width: 25%;
+    background: pink;
+}
+
