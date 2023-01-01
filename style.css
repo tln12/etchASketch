@@ -4,17 +4,23 @@ body {
     align-items: center;
     gap: 20px;
 }
-.container {
-    background: blue;
-    min-width: 50%;
+
+.container{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.sketchpad{
+    background-color: white;
+    box-shadow: 5px 5px 10px rgb(156, 156, 156);
+    width: min(50vw, 250px);
     display: flex;
     flex-wrap: wrap;
 }
 
 .square {
     height: auto;
-    /* height: auto; */
-    /* background: pink; */
 }
 .square::before{
     content: '';
@@ -23,5 +29,5 @@ body {
 }
 
 .square:hover{
-    background-color: white;
+    background-color: rgb(177, 177, 177);
 }
