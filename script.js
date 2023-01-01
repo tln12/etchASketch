@@ -2,6 +2,7 @@ const sketchpad = document.querySelector('.sketchpad');
 const gridSizeBtn = document.querySelectorAll('.grid-size');
 const colors = document.querySelectorAll('.color');
 const clear = document.querySelector('#clear');
+const bod = document.querySelector('body');
 
 let squares;
 let num;
@@ -9,6 +10,8 @@ let pressed;
 let color = "black";
 let gridSize;
 
+bod.addEventListener('mousedown', mousedown);
+bod.addEventListener('mouseup', mouseup);
 function mousedown(){
     pressed = true;
 }
@@ -67,7 +70,4 @@ clear.addEventListener('click', () => {
 
 // Initial grid
 createGrid(32);
-
-sketchpad.addEventListener('mousedown', mousedown);
-sketchpad.addEventListener("mouseup", mouseup);
 
