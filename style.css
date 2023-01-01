@@ -9,12 +9,54 @@ body {
     width: 100vw;
     display: flex;
     justify-content: center;
+    gap: 40px;
 }
 
+
+/* TOOLBAR */
+.toolbar{
+    background: rgb(56, 56, 56);
+    padding: 10px;
+    border-radius: 3px;
+    display: flex;
+    width: 50px;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+.colors button{
+    width: 30px;
+    height: 30px;
+}
+
+#red{
+    background: #FF1654;
+}
+#blue{
+    background-color: #2E5EAA;
+}
+#yellow{
+    background-color: #ffe092;
+}
+#green{
+    background-color: #297373;
+}
+#black{
+    background: #1A281F;
+}
+
+#eraser{
+    width: 50px;
+    height: 40px;
+}
+
+
+/* SKETCHPAD */
 .sketchpad{
     background-color: white;
     box-shadow: 5px 5px 10px rgb(156, 156, 156);
-    width: min(50vw, 250px);
+    width: min(60vw, 550px);
     display: flex;
     flex-wrap: wrap;
 }

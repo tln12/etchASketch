@@ -1,14 +1,27 @@
 const sketchpad = document.querySelector('.sketchpad');
 const gridSizeBtn = document.querySelectorAll('.grid-size');
+const colors = document.querySelectorAll('.color');
+const clear = document.querySelector('#clear');
 
-let squares = document.querySelectorAll('.square');
+let squares;
 let num;
+let pressed;
+let color = "black";
 let gridSize;
 
+function mousedown(){
+    pressed = true;
+}
+function mouseup(){
+    pressed = false;
+}
+function mousemove() {
+    if(pressed){
+        this.style.backgroundColor =color;
+    }
+}
+
 function createGrid(squaresPerRow){
-
-    let pressed;
-
     let totalSquares = squaresPerRow ** 2;
     for (let i = 0; i < totalSquares; i++){
         const div = document.createElement('div');
@@ -17,33 +30,14 @@ function createGrid(squaresPerRow){
         sketchpad.appendChild(div);
     }
     squares = document.querySelectorAll('.square');
-
-    function mousedown(){
-        pressed = true;
-    }
-    function mouseup(){
-        pressed = false;
-    }
-    function mousemove() {
-        if(pressed){
-            this.style.backgroundColor = "red";
-        }
-    }
-
-    sketchpad.addEventListener('mousedown', mousedown)
-    sketchpad.addEventListener("mouseup", mouseup)
     squares.forEach(b => b.addEventListener('mousemove', mousemove));
-
 }
 
 function removeGrid(){
-
-    squares = document.querySelectorAll('.square');
     for (let i = 0; i < squares.length; i++){
         sketchpad.removeChild(squares[i]);
     }
 }
-
 gridSizeBtn.forEach(btn => btn.addEventListener('click', () => {
     removeGrid();
     gridSize = btn.id;
@@ -51,14 +45,25 @@ gridSizeBtn.forEach(btn => btn.addEventListener('click', () => {
     })
 );
 
+colors.forEach(btn => btn.addEventListener('click', () => {
+    switch(btn.id){
+        case 'yellow': color = '#F7D002'; break;
+        case 'green': color = '#297373'; break;
+        case 'black': color = '#1A281F'; break;
+        case 'blue': color = '#2E5EAA'; break;
+        case 'red': color = '#BF1A2F'; break;
+        case 'eraser': color = 'white'; break;
+    }
+}));
+
+clear.addEventListener('click', () => {
+    removeGrid();
+    createGrid(gridSize);
+});
+
+// Initial grid
 createGrid(32);
 
-
-
-
-// square_two = Array.from(document.getElementsByClassName('square'));
-// // console.log(square_two[0]);
-// square_two.forEach(b => b.addEventListener('click', () => {
-//     console.log("clicked");
-// }));
+sketchpad.addEventListener('mousedown', mousedown)
+sketchpad.addEventListener("mouseup", mouseup)
 
