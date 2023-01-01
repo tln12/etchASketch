@@ -1,6 +1,9 @@
 body {
+    font-family: 'Play', 'sans-serif';
+    height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     gap: 20px;
 }
@@ -72,4 +75,16 @@ body {
 
 .square:hover{
     background-color: rgb(177, 177, 177);
+}
+
+/* FOOTER */
+footer {
+    box-sizing: border-box;
+    background-color: #1A281F;
+    color: white;
+    height: 7vh;
+    width: 100vw;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2rem;
 }
