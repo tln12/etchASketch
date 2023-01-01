@@ -17,8 +17,11 @@ function mouseup(){
 }
 function mousemove() {
     if(pressed){
-        this.style.backgroundColor =color;
+        this.style.backgroundColor = color;
     }
+}
+function mouseclick(){
+    this.style.backgroundColor = color;
 }
 
 function createGrid(squaresPerRow){
@@ -31,6 +34,7 @@ function createGrid(squaresPerRow){
     }
     squares = document.querySelectorAll('.square');
     squares.forEach(b => b.addEventListener('mousemove', mousemove));
+    squares.forEach(b => b.addEventListener('click', mouseclick));
 }
 
 function removeGrid(){
@@ -64,6 +68,6 @@ clear.addEventListener('click', () => {
 // Initial grid
 createGrid(32);
 
-sketchpad.addEventListener('mousedown', mousedown)
-sketchpad.addEventListener("mouseup", mouseup)
+sketchpad.addEventListener('mousedown', mousedown);
+sketchpad.addEventListener("mouseup", mouseup);
 
